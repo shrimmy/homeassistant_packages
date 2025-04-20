@@ -1,0 +1,13 @@
+rest_command:
+  open_left:
+    url: "http://192.168.107.61/servo?angle=170"
+    method: get
+  close_left:
+    url: "http://192.168.107.61/servo?angle=40"
+    method: get
+  open_right:
+    url: "http://192.168.107.101/servo?angle=190"
+    method: get
+  close_right:
+    url: "http://192.168.107.101/servo?angle=10"
+    method: get

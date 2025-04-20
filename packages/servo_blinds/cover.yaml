@@ -1,0 +1,30 @@
+cover:
+  - platform: template
+    covers:
+      left_blinds:
+        friendly_name: "Left Blinds"
+        value_template: "{{ states('sensor.left_blinds_current_angle') | float > 45 }}"
+        open_cover:
+          - service: rest_command.open_left
+          - delay: "00:00:00.200"
+          - service: homeassistant.update_entity
+            entity_id: sensor.left_blinds_current_angle
+        close_cover:
+          - service: rest_command.close_left
+          - delay: "00:00:00.200"
+          - service: homeassistant.update_entity
+            entity_id: sensor.left_blinds_current_angle
+
+      right_blinds:
+        friendly_name: "Right Blinds"
+        value_template: "{{ states('sensor.right_blinds_current_angle') | float > 15 }}"
+        open_cover:
+          - service: rest_command.open_right
+          - delay: "00:00:00.200"
+          - service: homeassistant.update_entity
+            entity_id: sensor.right_blinds_current_angle
+        close_cover:
+          - service: rest_command.close_right
+          - delay: "00:00:00.200"
+          - service: homeassistant.update_entity
+            entity_id: sensor.right_blinds_current_angle
